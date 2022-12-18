@@ -120,8 +120,6 @@ public class CipherApplication extends Application {
             }
         });
 
-
-
         // Create the button box
         HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton, exitButton, aboutButton, helpButton, saveButton, backToMain);
         buttonBox.setAlignment(Pos.CENTER);
