@@ -37,6 +37,7 @@ public class Main extends Application {
 
         // Add the buttons to a layout
         Pane root = new Pane();
+
         root.setStyle(
                         "-fx-background-color: #336699;" +
                         "-fx-padding: 10;" +
