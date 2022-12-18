@@ -12,6 +12,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class CipherApplication extends Application {
 
     private TextField keyField;
@@ -41,6 +46,9 @@ public class CipherApplication extends Application {
         Button decodeButton = new Button("Decode");
         Button clearButton = new Button("Clear");
         Button exitButton = new Button("Exit");
+        Button aboutButton = new Button("About");
+        Button helpButton = new Button("Help");
+        Button saveButton = new Button("Save");
 
         // Set the action for the encode button
         encodeButton.setOnAction(event -> {
@@ -70,8 +78,42 @@ public class CipherApplication extends Application {
             System.exit(0);
         });
 
+        // Set the action for the about button
+        aboutButton.setOnAction(event -> {
+            outputArea.setText("This is a simple cipher application that uses a Caesar cipher to \nencode and decode messages. " +
+                    "The key is a number that is used to shift the letters in \nthe message. For example, if the key is 3, then " +
+                    "the letter A would be replaced by \nD, B would be replaced by E, and so on. The key can be any number from " +
+                    "1 to 25. \nThe application will encode and decode messages using the key that you enter. \nYou can " +
+                    "also use the application to encode and decode messages that you \nfind on the Internet. The application " +
+                    "will not work if you enter a key \nthat is not a number between 1 and 25.");
+        });
+
+        // Set the action for the help button
+        helpButton.setOnAction(event -> {
+            outputArea.setText("Enter a message in the input area and a key in the key field. " +
+                    "\nThen click the Encode button to encode the message. To decode a message, " +
+                    "\nenter the encoded message in the input area and the key that was used to " +
+                    "\nencode the message in the key field. Then click the Decode button.");
+        });
+
+        // Set the action for the save button
+        saveButton.setOnAction(event -> {
+            String outputAreaText = outputArea.getText();
+            String inputAreaText = inputArea.getText();
+            File outputFile = new File("output.txt");
+            File inputFile = new File("input.txt");
+            try {
+                Files.write(Paths.get(outputFile.getAbsolutePath()), outputAreaText.getBytes());
+                Files.write(Paths.get(inputFile.getAbsolutePath()), inputAreaText.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+
+
         // Create the button box
-        HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton);
+        HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton, exitButton, aboutButton, helpButton, saveButton);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create the root layout
