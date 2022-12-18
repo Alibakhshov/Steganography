@@ -49,6 +49,7 @@ public class CipherApplication extends Application {
         Button aboutButton = new Button("About");
         Button helpButton = new Button("Help");
         Button saveButton = new Button("Save");
+        Button backToMain = new Button("Back to Main");
 
         // Set the action for the encode button
         encodeButton.setOnAction(event -> {
@@ -110,10 +111,19 @@ public class CipherApplication extends Application {
             }
         });
 
+        // Set the action for the back to main button
+        backToMain.setOnAction(e -> {
+            try {
+                new SteganographyApp().start(primaryStage);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
 
 
         // Create the button box
-        HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton, exitButton, aboutButton, helpButton, saveButton);
+        HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton, exitButton, aboutButton, helpButton, saveButton, backToMain);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create the root layout
