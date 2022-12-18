@@ -136,16 +136,6 @@ public class CipherApplication extends Application {
         primaryStage.show();
     }
 
-//    private String encode(String input, String key) {
-//        // Implement the substitution cipher encoding here
-//        return " ";
-//    }
-//
-//    private String decode(String input, String key) {
-//        // Implement the substitution cipher decoding here
-//        return "";
-//    }
-//}
     private String encode(String input, int key) {
         // Shift each character in the message by the shift amount
         StringBuilder encodedMessage = new StringBuilder();
