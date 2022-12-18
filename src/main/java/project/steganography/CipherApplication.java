@@ -40,6 +40,7 @@ public class CipherApplication extends Application {
         Button encodeButton = new Button("Encode");
         Button decodeButton = new Button("Decode");
         Button clearButton = new Button("Clear");
+        Button exitButton = new Button("Exit");
 
         // Set the action for the encode button
         encodeButton.setOnAction(event -> {
@@ -62,6 +63,11 @@ public class CipherApplication extends Application {
             keyField.clear();
             inputArea.clear();
             outputArea.clear();
+        });
+
+        // Set the action for the exit button
+        exitButton.setOnAction(event -> {
+            System.exit(0);
         });
 
         // Create the button box
