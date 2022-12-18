@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import project.steganography.run.Steganography;
 
 public class Main extends Application {
 
@@ -16,7 +17,7 @@ public class Main extends Application {
         app1Button.setLayoutX(50);
         app1Button.setOnAction(e -> {
             try {
-                new LSB().start(primaryStage);
+                new Steganography().start(primaryStage);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
@@ -36,6 +37,13 @@ public class Main extends Application {
 
         // Add the buttons to a layout
         Pane root = new Pane();
+        root.setStyle(
+                        "-fx-background-color: #336699;" +
+                        "-fx-padding: 10;" +
+                        "-fx-font-size: 20px;" +
+                        "-fx-font-family: \"Arial\";"
+
+        );
         root.getChildren().addAll(app1Button);
         root.getChildren().addAll(app2Button);
 
