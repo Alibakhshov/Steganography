@@ -1,4 +1,4 @@
-package project.steganography.run;
+package project.steganography.PictureSteganography;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static project.steganography.run.Utils.*;
+import static project.steganography.PictureSteganography.Utils.*;
 
 public class Steganography extends Application {
 

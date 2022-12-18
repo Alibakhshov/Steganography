@@ -9,6 +9,10 @@ module project.steganography {
 
     opens project.steganography to javafx.fxml;
     exports project.steganography;
-    exports project.steganography.run;
-    opens project.steganography.run to javafx.fxml;
+    exports project.steganography.PictureSteganography;
+    opens project.steganography.PictureSteganography to javafx.fxml;
+//    exports project.steganography.CipherApplication;
+//    opens project.steganography.CipherApplication to javafx.fxml;
+//    exports project.steganography.Cipher;
+//    opens project.steganography.Cipher to javafx.fxml;
 }

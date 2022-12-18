@@ -39,6 +39,7 @@ public class CipherApplication extends Application {
         // Create the encode and decode buttons
         Button encodeButton = new Button("Encode");
         Button decodeButton = new Button("Decode");
+        Button clearButton = new Button("Clear");
 
         // Set the action for the encode button
         encodeButton.setOnAction(event -> {
@@ -56,8 +57,15 @@ public class CipherApplication extends Application {
             outputArea.setText(decoded);
         });
 
+        // Set the action for the clear button
+        clearButton.setOnAction(event -> {
+            keyField.clear();
+            inputArea.clear();
+            outputArea.clear();
+        });
+
         // Create the button box
-        HBox buttonBox = new HBox(10, encodeButton, decodeButton);
+        HBox buttonBox = new HBox(10, encodeButton, decodeButton, clearButton);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create the root layout

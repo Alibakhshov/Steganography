@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import project.steganography.PictureSteganography.Steganography;
 
 public class SteganographyApp extends Application {
 
@@ -25,14 +26,28 @@ public class SteganographyApp extends Application {
 
         // Create buttons for the main actions
         Button cipherButton = new Button("Cipher");
-        Button decodeButton = new Button("Decode");
+        cipherButton.setOnAction(e -> {
+            try {
+                new CipherApplication().start(primaryStage);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        Button picButton = new Button("Picture Steganography");
+        picButton.setOnAction(e -> {
+            try {
+                new Steganography().start(primaryStage);
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         // Add some padding to the buttons
         cipherButton.setPadding(new Insets(10));
-        decodeButton.setPadding(new Insets(10));
+        picButton.setPadding(new Insets(10));
 
         // Create a horizontal box to hold the buttons
-        HBox buttonBox = new HBox(20, cipherButton, decodeButton);
+        HBox buttonBox = new HBox(20, cipherButton, picButton);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons

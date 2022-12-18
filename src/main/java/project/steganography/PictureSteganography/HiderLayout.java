@@ -1,4 +1,4 @@
-package project.steganography.run;
+package project.steganography.PictureSteganography;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -17,7 +17,7 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-import static project.steganography.run.Utils.humanReadableByteCount;
+import static project.steganography.PictureSteganography.Utils.humanReadableByteCount;
 
 public class HiderLayout {
 

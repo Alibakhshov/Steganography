@@ -1,4 +1,4 @@
-package project.steganography.run;
+package project.steganography.PictureSteganography;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

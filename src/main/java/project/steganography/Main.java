@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import project.steganography.run.Steganography;
+import project.steganography.PictureSteganography.Steganography;
 
 public class Main extends Application {
 

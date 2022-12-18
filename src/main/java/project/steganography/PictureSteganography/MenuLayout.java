@@ -1,4 +1,4 @@
-package project.steganography.run;
+package project.steganography.PictureSteganography;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
