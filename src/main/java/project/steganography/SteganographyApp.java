@@ -16,23 +16,23 @@ public class SteganographyApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Set the title of the stage
+        // Setting the title of the stage
         primaryStage.setTitle("Steganography App");
 
-        // Create a label for the title
+        // Creating a label for the title
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font(24));
 
         // Create buttons for the main actions
-        Button encodeButton = new Button("Encode");
+        Button cipherButton = new Button("Cipher");
         Button decodeButton = new Button("Decode");
 
         // Add some padding to the buttons
-        encodeButton.setPadding(new Insets(10));
+        cipherButton.setPadding(new Insets(10));
         decodeButton.setPadding(new Insets(10));
 
         // Create a horizontal box to hold the buttons
-        HBox buttonBox = new HBox(20, encodeButton, decodeButton);
+        HBox buttonBox = new HBox(20, cipherButton, decodeButton);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons
@@ -46,7 +46,7 @@ public class SteganographyApp extends Application {
 
         // Set the scene and show the stage
         Scene scene = new Scene(root, 400, 300);
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
 
         primaryStage.setScene(scene);
         primaryStage.show();
