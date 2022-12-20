@@ -57,7 +57,7 @@ public class SteganographyApp extends Application {
         whatsAppImage.setFitWidth(50);
 
 
-        // Creating a button for the phone call
+        // Creating a button for the whatsapp
         Button whatsAppButton = new Button("", whatsAppImage);
         whatsAppButton.setPrefSize(200, 10);
         whatsAppButton.setStyle(
