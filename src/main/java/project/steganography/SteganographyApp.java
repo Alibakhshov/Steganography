@@ -6,6 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -24,6 +26,11 @@ public class SteganographyApp extends Application {
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font(24));
 
+        Image image = new Image("file:src/main/resources/project/steganography/images/test.png");
+        ImageView imageView = new ImageView(image);
+
+
+
         // Create buttons for the main actions
         Button cipherButton = new Button("Cipher");
         cipherButton.setOnAction(e -> {
@@ -38,7 +45,7 @@ public class SteganographyApp extends Application {
             try {
                 new Steganography().start(primaryStage);
             } catch (Exception ex) {
-                throw new RuntimeException(ex);
+                throw new RuntimeException("Error");
             }
         });
 
@@ -51,18 +58,21 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons
-        VBox mainBox = new VBox(20, titleLabel, buttonBox);
+        VBox mainBox = new VBox(20, titleLabel, buttonBox, imageView);
         mainBox.setPadding(new Insets(20));
         mainBox.setAlignment(Pos.CENTER);
 
         // Create a border pane to hold the main box
         BorderPane root = new BorderPane();
         root.setCenter(mainBox);
+        root.setTop(imageView);
+
+
+
 
         // Set the scene and show the stage
         Scene scene = new Scene(root, 400, 300);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
-
         primaryStage.setScene(scene);
         primaryStage.show();
     }
