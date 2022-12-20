@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import project.steganography.Contact.CallNumber;
 import project.steganography.PictureSteganography.Steganography;
 
 public class SteganographyApp extends Application {
@@ -32,14 +33,18 @@ public class SteganographyApp extends Application {
         phoneCallImage.setFitWidth(50);
 
         Button phoneCallButton = new Button("", phoneCallImage);
-        phoneCallButton.setPrefSize(200, 50);
+        phoneCallButton.setPrefSize(200, 10);
         phoneCallButton.setStyle(
                 "-fx-background-color: none;" +
                         "-fx-cursor: pointer;"
 
         );
-        phoneCallButton.setOnAction(event -> {
-            System.out.println("Phone Call");
+        phoneCallButton.setOnAction(e -> {
+            try {
+                new CallNumber().start(new Stage());
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         });
 
 
@@ -82,14 +87,14 @@ public class SteganographyApp extends Application {
 
 
 
-
-
         // Set the scene and show the stage
         Scene scene = new Scene(root, 400, 300);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
 
     public static void main(String[] args) {
         launch(args);
