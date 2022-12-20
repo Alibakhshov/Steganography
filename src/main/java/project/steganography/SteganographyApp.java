@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import project.steganography.Contact.CallNumber;
+import project.steganography.Contact.Github;
+import project.steganography.Contact.LinkedIn;
 import project.steganography.Contact.WhatsApp;
 import project.steganography.PictureSteganography.Steganography;
 
@@ -29,8 +31,8 @@ public class SteganographyApp extends Application {
         titleLabel.setFont(new Font(24));
 
         // Adding an image to the Phone Call button
-        Image image = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
-        ImageView phoneCallImage = new ImageView(image);
+        Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
+        ImageView phoneCallImage = new ImageView(phoneImage);
         phoneCallImage.setFitHeight(50);
         phoneCallImage.setFitWidth(50);
 
@@ -51,8 +53,8 @@ public class SteganographyApp extends Application {
         });
 
         // Adding an image to the Whatsapp button
-        Image image1 = new Image("file:src/main/resources/project/steganography/images/whatsapp (1).png");
-        ImageView whatsAppImage = new ImageView(image1);
+        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp (1).png");
+        ImageView whatsAppImage = new ImageView(whatsImage);
         whatsAppImage.setFitHeight(50);
         whatsAppImage.setFitWidth(50);
 
@@ -61,7 +63,7 @@ public class SteganographyApp extends Application {
         Button whatsAppButton = new Button("", whatsAppImage);
         whatsAppButton.setPrefSize(200, 10);
         whatsAppButton.setStyle(
-                "-fx-background-color: none;" +
+                        "-fx-background-color: none;" +
                         "-fx-cursor: hand;"
 
         );
@@ -73,6 +75,51 @@ public class SteganographyApp extends Application {
             }
         });
 
+        // Adding an image to the github button
+        Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
+        ImageView githubImage = new ImageView(gitImage);
+        githubImage.setFitHeight(50);
+        githubImage.setFitWidth(50);
+
+
+        // Creating a button for the github
+        Button githubButton = new Button("", githubImage);
+        githubButton.setPrefSize(200, 10);
+        githubButton.setStyle(
+                        "-fx-background-color: none;" +
+                        "-fx-cursor: hand;"
+
+        );
+        githubButton.setOnAction(e -> {
+            try {
+                new Github().start(new Stage());
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        // Adding an image to the linkedin button
+        Image linkImage = new Image("file:src/main/resources/project/steganography/images/linkedin.png");
+        ImageView linkedinImage = new ImageView(linkImage);
+        linkedinImage.setFitHeight(50);
+        linkedinImage.setFitWidth(50);
+
+
+        // Creating a button for the linkedin
+        Button linkedinButton = new Button("", linkedinImage);
+        linkedinButton.setPrefSize(200, 10);
+        linkedinButton.setStyle(
+                        "-fx-background-color: none;" +
+                        "-fx-cursor: hand;"
+
+        );
+        linkedinButton.setOnAction(e -> {
+            try {
+                new LinkedIn().start(new Stage());
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
 
 
@@ -113,7 +160,11 @@ public class SteganographyApp extends Application {
                 phoneCallImage,
                 phoneCallButton,
                 whatsAppImage,
-                whatsAppButton
+                whatsAppButton,
+                githubImage,
+                githubButton,
+                linkedinImage,
+                linkedinButton
         );
         mainBox.setPadding(new Insets(20));
         mainBox.setAlignment(Pos.CENTER);
