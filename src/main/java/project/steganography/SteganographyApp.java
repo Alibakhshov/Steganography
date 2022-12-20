@@ -35,8 +35,8 @@ public class SteganographyApp extends Application {
         Button phoneCallButton = new Button("", phoneCallImage);
         phoneCallButton.setPrefSize(200, 10);
         phoneCallButton.setStyle(
-                "-fx-background-color: none;" +
-                        "-fx-cursor: pointer;"
+                        "-fx-background-color: none;" +
+                        "-fx-cursor: hand;"
 
         );
         phoneCallButton.setOnAction(e -> {
