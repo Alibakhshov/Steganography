@@ -26,8 +26,22 @@ public class SteganographyApp extends Application {
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font(24));
 
-        Image image = new Image("file:src/main/resources/project/steganography/images/test.png");
-        ImageView imageView = new ImageView(image);
+        Image image = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
+        ImageView phoneCallImage = new ImageView(image);
+        phoneCallImage.setFitHeight(50);
+        phoneCallImage.setFitWidth(50);
+
+        Button phoneCallButton = new Button("", phoneCallImage);
+        phoneCallButton.setPrefSize(200, 50);
+        phoneCallButton.setStyle(
+                "-fx-background-color: none;" +
+                        "-fx-cursor: pointer;"
+
+        );
+        phoneCallButton.setOnAction(event -> {
+            System.out.println("Phone Call");
+        });
+
 
 
 
@@ -58,14 +72,14 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons
-        VBox mainBox = new VBox(20, titleLabel, buttonBox, imageView);
+        VBox mainBox = new VBox(20, titleLabel, buttonBox, phoneCallImage, phoneCallButton);
         mainBox.setPadding(new Insets(20));
         mainBox.setAlignment(Pos.CENTER);
 
         // Create a border pane to hold the main box
         BorderPane root = new BorderPane();
         root.setCenter(mainBox);
-        root.setTop(imageView);
+
 
 
 
