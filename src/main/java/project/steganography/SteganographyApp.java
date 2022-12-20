@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import project.steganography.Contact.CallNumber;
+import project.steganography.Contact.WhatsApp;
 import project.steganography.PictureSteganography.Steganography;
 
 public class SteganographyApp extends Application {
@@ -27,6 +28,7 @@ public class SteganographyApp extends Application {
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font(24));
 
+        // Adding an image to the Phone Call button
         Image image = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
         ImageView phoneCallImage = new ImageView(image);
         phoneCallImage.setFitHeight(50);
@@ -48,7 +50,28 @@ public class SteganographyApp extends Application {
             }
         });
 
-        // Creating a button for whatsapp contact
+        // Adding an image to the Whatsapp button
+        Image image1 = new Image("file:src/main/resources/project/steganography/images/whatsapp (1).png");
+        ImageView whatsAppImage = new ImageView(image1);
+        whatsAppImage.setFitHeight(50);
+        whatsAppImage.setFitWidth(50);
+
+
+        // Creating a button for the phone call
+        Button whatsAppButton = new Button("", whatsAppImage);
+        whatsAppButton.setPrefSize(200, 10);
+        whatsAppButton.setStyle(
+                "-fx-background-color: none;" +
+                        "-fx-cursor: hand;"
+
+        );
+        whatsAppButton.setOnAction(e -> {
+            try {
+                new WhatsApp().start(new Stage());
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
 
 
@@ -83,7 +106,15 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons
-        VBox mainBox = new VBox(20, titleLabel, buttonBox, phoneCallImage, phoneCallButton);
+        VBox mainBox = new VBox(
+                20,
+                titleLabel,
+                buttonBox,
+                phoneCallImage,
+                phoneCallButton,
+                whatsAppImage,
+                whatsAppButton
+        );
         mainBox.setPadding(new Insets(20));
         mainBox.setAlignment(Pos.CENTER);
 
