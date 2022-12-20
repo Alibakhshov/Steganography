@@ -32,6 +32,7 @@ public class SteganographyApp extends Application {
         phoneCallImage.setFitHeight(50);
         phoneCallImage.setFitWidth(50);
 
+        // Creating a button for the phone call
         Button phoneCallButton = new Button("", phoneCallImage);
         phoneCallButton.setPrefSize(200, 10);
         phoneCallButton.setStyle(
@@ -47,6 +48,9 @@ public class SteganographyApp extends Application {
             }
         });
 
+        // Creating a button for whatsapp contact
+
+
 
 
 
@@ -59,6 +63,8 @@ public class SteganographyApp extends Application {
                 throw new RuntimeException(ex);
             }
         });
+
+        // Creating button for the Picture Steganography App
         Button picButton = new Button("Picture Steganography");
         picButton.setOnAction(e -> {
             try {
