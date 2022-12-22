@@ -33,12 +33,18 @@ public class SteganographyApp extends Application {
         // Adding an image to the Phone Call button
         Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
         ImageView phoneCallImage = new ImageView(phoneImage);
-        phoneCallImage.setFitHeight(50);
-        phoneCallImage.setFitWidth(50);
+        phoneCallImage.setFitHeight(20);
+        phoneCallImage.setFitWidth(20);
+//        phoneCallImage.setLayoutX(50);
+//        phoneCallImage.setLayoutY(10);
+
+
 
         // Creating a button for the phone call
         Button phoneCallButton = new Button("", phoneCallImage);
-        phoneCallButton.setPrefSize(200, 10);
+        phoneCallButton.setLayoutX(100);
+        phoneCallButton.setLayoutY(10);
+//        phoneCallButton.setPrefSize(200, 10);
         phoneCallButton.setStyle(
                         "-fx-background-color: none;" +
                         "-fx-cursor: hand;"
@@ -55,8 +61,8 @@ public class SteganographyApp extends Application {
         // Adding an image to the Whatsapp button
         Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp (1).png");
         ImageView whatsAppImage = new ImageView(whatsImage);
-        whatsAppImage.setFitHeight(50);
-        whatsAppImage.setFitWidth(50);
+        whatsAppImage.setFitHeight(20);
+        whatsAppImage.setFitWidth(20);
 
 
         // Creating a button for the whatsapp
@@ -78,8 +84,8 @@ public class SteganographyApp extends Application {
         // Adding an image to the github button
         Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
         ImageView githubImage = new ImageView(gitImage);
-        githubImage.setFitHeight(50);
-        githubImage.setFitWidth(50);
+        githubImage.setFitHeight(20);
+        githubImage.setFitWidth(20);
 
 
         // Creating a button for the github
@@ -101,8 +107,8 @@ public class SteganographyApp extends Application {
         // Adding an image to the linkedin button
         Image linkImage = new Image("file:src/main/resources/project/steganography/images/linkedin.png");
         ImageView linkedinImage = new ImageView(linkImage);
-        linkedinImage.setFitHeight(50);
-        linkedinImage.setFitWidth(50);
+        linkedinImage.setFitHeight(20);
+        linkedinImage.setFitWidth(20);
 
 
         // Creating a button for the linkedin
@@ -153,10 +159,11 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold the title and buttons
-        VBox mainBox = new VBox(
-                20,
-                titleLabel,
-                buttonBox,
+//        VBox mainBox = new VBox(20, titleLabel, buttonBox);
+//        mainBox.setAlignment(Pos.CENTER);
+
+        // Create a horizontal box to hold the contact buttons
+        HBox contactBox = new HBox(20,
                 phoneCallImage,
                 phoneCallButton,
                 whatsAppImage,
@@ -164,14 +171,20 @@ public class SteganographyApp extends Application {
                 githubImage,
                 githubButton,
                 linkedinImage,
-                linkedinButton
-        );
+                linkedinButton);
+        contactBox.setPadding(new Insets(10));
+        contactBox.setAlignment(Pos.CENTER);
+
+
+        // Create a vertical box to hold the title and buttons
+        VBox mainBox = new VBox(20, titleLabel, buttonBox);
         mainBox.setPadding(new Insets(20));
         mainBox.setAlignment(Pos.CENTER);
 
         // Create a border pane to hold the main box
         BorderPane root = new BorderPane();
         root.setCenter(mainBox);
+        root.setBottom(contactBox);
 
 
 
