@@ -175,16 +175,28 @@ public class SteganographyApp extends Application {
         contactBox.setPadding(new Insets(10));
         contactBox.setAlignment(Pos.CENTER);
 
+        // Create a vertical box to hold project picture
+        Image projectImage = new Image("file:src/main/resources/project/steganography/images/github.png");
+        ImageView projectImageView = new ImageView(projectImage);
+        projectImageView.setFitHeight(50);
+        projectImageView.setFitWidth(50);
+        VBox projectBox = new VBox(10, projectImageView);
+        projectBox.setAlignment(Pos.TOP_LEFT);
+
+
+
 
         // Create a vertical box to hold the title and buttons
         VBox mainBox = new VBox(20, titleLabel, buttonBox);
         mainBox.setPadding(new Insets(20));
+        mainBox.getChildren().add(linkedinImage);
         mainBox.setAlignment(Pos.CENTER);
 
         // Create a border pane to hold the main box
         BorderPane root = new BorderPane();
         root.setCenter(mainBox);
         root.setBottom(contactBox);
+        root.setTop(projectBox);
 
 
 
