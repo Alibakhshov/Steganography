@@ -29,7 +29,7 @@ public class SteganographyApp extends Application {
         // Creating a label for the title
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font("Arial", 30));
-        titleLabel.setPadding(new Insets(10, 10, 10, 90));
+        titleLabel.setPadding(new Insets(10, 10, 0, 90));
 
 
         // Adding an image to the Phone Call button
@@ -180,10 +180,14 @@ public class SteganographyApp extends Application {
         // Create a vertical box to hold project picture
         Image projectImage = new Image("file:src/main/resources/project/steganography/images/github.png");
         ImageView projectImageView = new ImageView(projectImage);
+        projectImageView.setLayoutX(100);
+        projectImageView.setLayoutY(10);
         projectImageView.setFitHeight(50);
         projectImageView.setFitWidth(50);
-        VBox projectBox = new VBox(10, titleLabel, projectImageView);
-//        projectBox.setAlignment(Pos.CENTER);
+        VBox projectBox = new VBox(20,   projectImageView, titleLabel);
+        projectBox.setPadding(new Insets(10, 10, 10, 10));
+        projectBox.setAlignment(Pos.TOP_LEFT);
+
 
 
 
