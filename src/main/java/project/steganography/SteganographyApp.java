@@ -28,7 +28,9 @@ public class SteganographyApp extends Application {
 
         // Creating a label for the title
         Label titleLabel = new Label("Steganography App");
-        titleLabel.setFont(new Font(24));
+        titleLabel.setFont(new Font("Arial", 30));
+        titleLabel.setPadding(new Insets(10, 10, 10, 90));
+
 
         // Adding an image to the Phone Call button
         Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
@@ -59,7 +61,7 @@ public class SteganographyApp extends Application {
         });
 
         // Adding an image to the Whatsapp button
-        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp (1).png");
+        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp.png");
         ImageView whatsAppImage = new ImageView(whatsImage);
         whatsAppImage.setFitHeight(20);
         whatsAppImage.setFitWidth(20);
@@ -180,14 +182,14 @@ public class SteganographyApp extends Application {
         ImageView projectImageView = new ImageView(projectImage);
         projectImageView.setFitHeight(50);
         projectImageView.setFitWidth(50);
-        VBox projectBox = new VBox(10, projectImageView);
-        projectBox.setAlignment(Pos.TOP_LEFT);
+        VBox projectBox = new VBox(10, titleLabel, projectImageView);
+//        projectBox.setAlignment(Pos.CENTER);
 
 
 
 
         // Create a vertical box to hold the title and buttons
-        VBox mainBox = new VBox(20, titleLabel, buttonBox);
+        VBox mainBox = new VBox(20, buttonBox);
         mainBox.setPadding(new Insets(20));
         mainBox.getChildren().add(linkedinImage);
         mainBox.setAlignment(Pos.CENTER);
@@ -197,6 +199,8 @@ public class SteganographyApp extends Application {
         root.setCenter(mainBox);
         root.setBottom(contactBox);
         root.setTop(projectBox);
+
+
 
 
 
