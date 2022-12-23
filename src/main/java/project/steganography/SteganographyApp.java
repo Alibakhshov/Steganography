@@ -37,10 +37,6 @@ public class SteganographyApp extends Application {
         ImageView phoneCallImage = new ImageView(phoneImage);
         phoneCallImage.setFitHeight(20);
         phoneCallImage.setFitWidth(20);
-//        phoneCallImage.setLayoutX(50);
-//        phoneCallImage.setLayoutY(10);
-
-
 
         // Creating a button for the phone call
         Button phoneCallButton = new Button("", phoneCallImage);
@@ -50,7 +46,6 @@ public class SteganographyApp extends Application {
         phoneCallButton.setStyle(
                         "-fx-background-color: none;" +
                         "-fx-cursor: hand;"
-
         );
         phoneCallButton.setOnAction(e -> {
             try {
@@ -66,14 +61,12 @@ public class SteganographyApp extends Application {
         whatsAppImage.setFitHeight(20);
         whatsAppImage.setFitWidth(20);
 
-
         // Creating a button for the whatsapp
         Button whatsAppButton = new Button("", whatsAppImage);
         whatsAppButton.setPrefSize(200, 10);
         whatsAppButton.setStyle(
                         "-fx-background-color: none;" +
                         "-fx-cursor: hand;"
-
         );
         whatsAppButton.setOnAction(e -> {
             try {
@@ -85,7 +78,6 @@ public class SteganographyApp extends Application {
 
         // Creating a button for the login
         Button loginButton = new Button("");
-//        loginButton.setPrefSize(200, 10);
         loginButton.setOnAction(e -> {
             try {
                 titleLabel.setText("Error");
@@ -99,7 +91,6 @@ public class SteganographyApp extends Application {
             }
         });
         loginButton.setPadding(new Insets(0, 0, 0, 850));
-
 
         // Adding an image to the github button
         Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
@@ -167,7 +158,7 @@ public class SteganographyApp extends Application {
 
 
         // Create buttons for the main actions
-        Button cipherButton = new Button("Cipher");
+        Button cipherButton = new Button("Cipher Application");
         cipherButton.setOnAction(e -> {
             try {
                 new CipherApplication().start(primaryStage);

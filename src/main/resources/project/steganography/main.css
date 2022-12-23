@@ -1,9 +1,16 @@
 .root{
     -fx-background-color: #ffffff;
+    /*-fx-background-radius: 10;*/
+    -fx-border-radius: 15;
+    -fx-border-color: #000000;
+    -fx-border-width: 3;
+
+
+
 }
 
 .button {
-    -fx-background-color: #09a90e;
+    -fx-background-color: #006c00;
     -fx-text-fill: white;
     -fx-font-size: 18px;
     -fx-font-weight: bold;
