@@ -19,9 +19,9 @@ import project.steganography.Contact.LinkedIn;
 import project.steganography.Contact.WhatsApp;
 import project.steganography.PictureSteganography.Steganography;
 
+@Override
 public class SteganographyApp extends Application {
 
-    @Override
     public void start(Stage primaryStage) {
         // Setting the title of the stage
         primaryStage.setTitle("Steganography App");
