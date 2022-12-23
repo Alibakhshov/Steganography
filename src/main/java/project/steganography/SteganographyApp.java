@@ -90,6 +90,22 @@ public class SteganographyApp extends Application {
             System.exit(0);
         });
 
+        // Creating a button for the login
+        Button loginButton = new Button("");
+//        loginButton.setPrefSize(200, 10);
+        loginButton.setOnAction(e -> {
+            try {
+                titleLabel.setText("Logout");
+                loginButton.setStyle(
+                        "-fx-text-fill: red;" +
+                        "-fx-background-color: Red;"
+                );
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        loginButton.setPadding(new Insets(0, 0, 0, 850));
+
 
         // Adding an image to the github button
         Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
@@ -180,9 +196,6 @@ public class SteganographyApp extends Application {
         rightBox.setPadding(new Insets(200, 10, 10, 10));
 //        rightBox.setAlignment(Pos.CENTER_RIGHT);
 
-
-
-
         // Create a horizontal box to hold the contact buttons
         HBox contactBox = new HBox(20,
                 phoneCallImage,
@@ -203,9 +216,9 @@ public class SteganographyApp extends Application {
         projectImageView.setLayoutY(10);
         projectImageView.setFitHeight(50);
         projectImageView.setFitWidth(50);
-        VBox projectBox = new VBox(20,   projectImageView, titleLabel);
+        VBox projectBox = new VBox(20,   projectImageView, titleLabel, loginButton);
         projectBox.setPadding(new Insets(10, 10, 10, 10));
-        projectBox.setAlignment(Pos.TOP_LEFT);
+//        projectBox.setAlignment(Pos.TOP_LEFT);
 
 
         // Create a vertical box to hold the title and buttons
@@ -222,7 +235,7 @@ public class SteganographyApp extends Application {
         root.setLeft(rightBox);
 
         // Set the scene and show the stage
-        Scene scene = new Scene(root, 900, 300);
+        Scene scene = new Scene(root, 870, 390);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
