@@ -1,9 +1,9 @@
 .root{
     -fx-background-color: #ffffff;
     /*-fx-background-radius: 10;*/
-    -fx-border-radius: 15;
-    -fx-border-color: #000000;
-    -fx-border-width: 3;
+    /*-fx-border-radius: 25;*/
+    -fx-border-color: #006c00;
+    -fx-border-width: 10;
 
 
 
@@ -19,7 +19,7 @@
 .label {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-text-fill: #3f51b5;
+    -fx-text-fill: #006c00;
 }
 
 /*.picButton {*/

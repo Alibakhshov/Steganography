@@ -80,7 +80,7 @@ public class SteganographyApp extends Application {
         Button loginButton = new Button("");
         loginButton.setOnAction(e -> {
             try {
-                titleLabel.setText("Error");
+                titleLabel.setText("Error will be displayed here");
                 titleLabel.setFont(new Font("Arial", 20));
                 titleLabel.setStyle("-fx-text-fill: red;");
                 loginButton.setStyle(
@@ -90,7 +90,7 @@ public class SteganographyApp extends Application {
                 throw new RuntimeException(ex);
             }
         });
-        loginButton.setPadding(new Insets(0, 0, 0, 850));
+        loginButton.setPadding(new Insets(0, 0, 0, 830));
 
         // Adding an image to the github button
         Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
@@ -186,14 +186,14 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Creating a right vertical box to hold the picture
-        VBox rightBox = new VBox(20);
-        rightBox.setStyle(
-                "-fx-background-color: #000000;" +
-                "-fx-background-radius: 2 5 5 0;" +
-                "-fx-padding: 50;" +
-                "-fx-spacing: 20;"
-        );
-        rightBox.setPadding(new Insets(200, 10, 10, 10));
+//        VBox rightBox = new VBox(20);
+//        rightBox.setStyle(
+//                "-fx-background-color: #000000;" +
+//                "-fx-background-radius: 2 5 5 0;" +
+//                "-fx-padding: 50;" +
+//                "-fx-spacing: 20;"
+//        );
+//        rightBox.setPadding(new Insets(200, 10, 10, 10));
 //        rightBox.setAlignment(Pos.CENTER_RIGHT);
 
         // Create a horizontal box to hold the contact buttons
@@ -235,7 +235,7 @@ public class SteganographyApp extends Application {
         root.setCenter(mainBox);
         root.setBottom(contactBox);
         root.setTop(projectBox);
-        root.setLeft(rightBox);
+//        root.setLeft(rightBox);
 
         // Set the scene and show the stage
         Scene scene = new Scene(root, 870, 450);
