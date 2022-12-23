@@ -29,7 +29,7 @@ public class SteganographyApp extends Application {
         // Creating a label for the title
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font("Arial", 30));
-        titleLabel.setPadding(new Insets(10, 10, 0, 90));
+        titleLabel.setPadding(new Insets(-90, 10, 0, 100));
 
 
         // Adding an image to the Phone Call button
