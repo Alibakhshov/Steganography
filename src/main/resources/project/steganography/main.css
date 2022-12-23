@@ -1,6 +1,6 @@
-/*.root{*/
-/*    -fx-background-color: #00ff14;*/
-/*}*/
+.root{
+    -fx-background-color: #ffffff;
+}
 
 .button {
     -fx-background-color: #09a90e;

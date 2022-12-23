@@ -33,10 +33,10 @@ public class SteganographyApp extends Application {
 
 
         // Adding an image to the Phone Call button
-        Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
+        Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call (1).png");
         ImageView phoneCallImage = new ImageView(phoneImage);
-        phoneCallImage.setFitHeight(20);
-        phoneCallImage.setFitWidth(20);
+        phoneCallImage.setFitHeight(30);
+        phoneCallImage.setFitWidth(30);
 //        phoneCallImage.setLayoutX(50);
 //        phoneCallImage.setLayoutY(10);
 
