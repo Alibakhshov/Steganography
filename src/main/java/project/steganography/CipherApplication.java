@@ -129,8 +129,14 @@ public class CipherApplication extends Application {
         root.setPadding(new Insets(10));
 
         // Set the scene and show the stage
-        primaryStage.setScene(new Scene(root));
+//        primaryStage.setScene(new Scene(root));
+////        root.getStylesheets().add(getClass().getResource("CipherApp.css").toExternalForm());
+////        primaryStage.setTitle("Cipher Application");
+////        primaryStage.show();
+        Scene scene = new Scene(root, 870, 600);
+        scene.getStylesheets().add(getClass().getResource("CipherApp.css").toExternalForm());
         primaryStage.setTitle("Cipher Application");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
