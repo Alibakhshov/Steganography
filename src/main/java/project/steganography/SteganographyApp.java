@@ -161,6 +161,9 @@ public class SteganographyApp extends Application {
         cipherButton.setOnAction(e -> {
             try {
                 new CipherApplication().start(primaryStage);
+                cipherButton.setStyle(
+                        "-fx-background-color: #00ff00;"
+                );
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
