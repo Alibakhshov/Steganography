@@ -83,21 +83,15 @@ public class SteganographyApp extends Application {
             }
         });
 
-        // Creating a button for exit
-        Button exitButton = new Button("Exit");
-        exitButton.setPrefSize(200, 10);
-        exitButton.setOnAction(e -> {
-            System.exit(0);
-        });
-
         // Creating a button for the login
         Button loginButton = new Button("");
 //        loginButton.setPrefSize(200, 10);
         loginButton.setOnAction(e -> {
             try {
-                titleLabel.setText("Logout");
+                titleLabel.setText("Error");
+                titleLabel.setFont(new Font("Arial", 20));
+                titleLabel.setStyle("-fx-text-fill: red;");
                 loginButton.setStyle(
-                        "-fx-text-fill: red;" +
                         "-fx-background-color: Red;"
                 );
             } catch (Exception ex) {
@@ -153,7 +147,23 @@ public class SteganographyApp extends Application {
             }
         });
 
+        // Adding an image to the linkedin button
+        Image exImage = new Image("file:src/main/resources/project/steganography/images/exit.png");
+        ImageView exitImage = new ImageView(exImage);
+        exitImage.setFitHeight(20);
+        exitImage.setFitWidth(20);
 
+        // Creating a button for exit
+        Button exitButton = new Button("", exitImage);
+        exitButton.setPrefSize(200, 10);
+        exitButton.setStyle(
+                        "-fx-background-color: none;" +
+                        "-fx-cursor: hand;"
+
+        );
+        exitButton.setOnAction(e -> {
+            System.exit(0);
+        });
 
 
         // Create buttons for the main actions
@@ -205,7 +215,10 @@ public class SteganographyApp extends Application {
                 githubImage,
                 githubButton,
                 linkedinImage,
-                linkedinButton);
+                linkedinButton,
+                exitButton,
+                exitImage
+        );
         contactBox.setPadding(new Insets(10));
         contactBox.setAlignment(Pos.CENTER);
 
