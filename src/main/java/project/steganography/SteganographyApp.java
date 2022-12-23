@@ -33,10 +33,10 @@ public class SteganographyApp extends Application {
 
 
         // Adding an image to the Phone Call button
-        Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call (1).png");
+        Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
         ImageView phoneCallImage = new ImageView(phoneImage);
-        phoneCallImage.setFitHeight(30);
-        phoneCallImage.setFitWidth(30);
+        phoneCallImage.setFitHeight(20);
+        phoneCallImage.setFitWidth(20);
 //        phoneCallImage.setLayoutX(50);
 //        phoneCallImage.setLayoutY(10);
 
@@ -61,7 +61,7 @@ public class SteganographyApp extends Application {
         });
 
         // Adding an image to the Whatsapp button
-        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp (2).png");
+        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp.png");
         ImageView whatsAppImage = new ImageView(whatsImage);
         whatsAppImage.setFitHeight(20);
         whatsAppImage.setFitWidth(20);
