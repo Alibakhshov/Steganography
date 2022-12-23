@@ -29,7 +29,7 @@ public class SteganographyApp extends Application {
         // Creating a label for the title
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font("Arial", 30));
-        titleLabel.setPadding(new Insets(-90, 10, 0, 100));
+        titleLabel.setPadding(new Insets(-90, 10, 0, 290));
 
 
         // Adding an image to the Phone Call button
@@ -105,7 +105,6 @@ public class SteganographyApp extends Application {
         githubButton.setStyle(
                         "-fx-background-color: none;" +
                         "-fx-cursor: hand;"
-
         );
         githubButton.setOnAction(e -> {
             try {
@@ -187,12 +186,12 @@ public class SteganographyApp extends Application {
         buttonBox.setAlignment(Pos.CENTER);
 
         // Creating a right vertical box to hold the picture
-        VBox rightBox = new VBox(20, githubImage);
+        VBox rightBox = new VBox(20);
         rightBox.setStyle(
-                "-fx-background-color: #000000;"
-//                "-fx-background-radius: 2 5 5 0;" +
-//                "-fx-padding: 50;" +
-//                "-fx-spacing: 20;"
+                "-fx-background-color: #000000;" +
+                "-fx-background-radius: 2 5 5 0;" +
+                "-fx-padding: 50;" +
+                "-fx-spacing: 20;"
         );
         rightBox.setPadding(new Insets(200, 10, 10, 10));
 //        rightBox.setAlignment(Pos.CENTER_RIGHT);
@@ -214,12 +213,12 @@ public class SteganographyApp extends Application {
         contactBox.setAlignment(Pos.CENTER);
 
         // Create a vertical box to hold project picture
-        Image projectImage = new Image("file:src/main/resources/project/steganography/images/github.png");
+        Image projectImage = new Image("file:src/main/resources/project/steganography/images/logo.png");
         ImageView projectImageView = new ImageView(projectImage);
         projectImageView.setLayoutX(100);
         projectImageView.setLayoutY(10);
-        projectImageView.setFitHeight(50);
-        projectImageView.setFitWidth(50);
+        projectImageView.setFitHeight(100);
+        projectImageView.setFitWidth(100);
         VBox projectBox = new VBox(20,   projectImageView, titleLabel, loginButton);
         projectBox.setPadding(new Insets(10, 10, 10, 10));
 //        projectBox.setAlignment(Pos.TOP_LEFT);
@@ -239,7 +238,7 @@ public class SteganographyApp extends Application {
         root.setLeft(rightBox);
 
         // Set the scene and show the stage
-        Scene scene = new Scene(root, 870, 390);
+        Scene scene = new Scene(root, 870, 450);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
