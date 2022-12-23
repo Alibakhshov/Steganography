@@ -83,6 +83,14 @@ public class SteganographyApp extends Application {
             }
         });
 
+        // Creating a button for exit
+        Button exitButton = new Button("Exit");
+        exitButton.setPrefSize(200, 10);
+        exitButton.setOnAction(e -> {
+            System.exit(0);
+        });
+
+
         // Adding an image to the github button
         Image gitImage = new Image("file:src/main/resources/project/steganography/images/github.png");
         ImageView githubImage = new ImageView(gitImage);
@@ -144,6 +152,7 @@ public class SteganographyApp extends Application {
 
         // Creating button for the Picture Steganography App
         Button picButton = new Button("Picture Steganography");
+        picButton.getStyleClass().add("picButton");
         picButton.setOnAction(e -> {
             try {
                 new Steganography().start(primaryStage);
@@ -157,12 +166,22 @@ public class SteganographyApp extends Application {
         picButton.setPadding(new Insets(10));
 
         // Create a horizontal box to hold the buttons
-        HBox buttonBox = new HBox(20, cipherButton, picButton);
+        HBox buttonBox = new HBox(20, cipherButton, picButton, exitButton);
         buttonBox.setAlignment(Pos.CENTER);
 
-        // Create a vertical box to hold the title and buttons
-//        VBox mainBox = new VBox(20, titleLabel, buttonBox);
-//        mainBox.setAlignment(Pos.CENTER);
+        // Creating a right vertical box to hold the picture
+        VBox rightBox = new VBox(20, githubImage);
+        rightBox.setStyle(
+                "-fx-background-color: #000000;"
+//                "-fx-background-radius: 2 5 5 0;" +
+//                "-fx-padding: 50;" +
+//                "-fx-spacing: 20;"
+        );
+        rightBox.setPadding(new Insets(200, 10, 10, 10));
+//        rightBox.setAlignment(Pos.CENTER_RIGHT);
+
+
+
 
         // Create a horizontal box to hold the contact buttons
         HBox contactBox = new HBox(20,
@@ -189,9 +208,6 @@ public class SteganographyApp extends Application {
         projectBox.setAlignment(Pos.TOP_LEFT);
 
 
-
-
-
         // Create a vertical box to hold the title and buttons
         VBox mainBox = new VBox(20, buttonBox);
         mainBox.setPadding(new Insets(20));
@@ -203,13 +219,10 @@ public class SteganographyApp extends Application {
         root.setCenter(mainBox);
         root.setBottom(contactBox);
         root.setTop(projectBox);
-
-
-
-
+        root.setLeft(rightBox);
 
         // Set the scene and show the stage
-        Scene scene = new Scene(root, 400, 300);
+        Scene scene = new Scene(root, 900, 300);
         scene.getStylesheets().add(getClass().getResource("main.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
