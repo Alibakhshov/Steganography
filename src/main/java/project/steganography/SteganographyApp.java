@@ -19,7 +19,7 @@ import project.steganography.Contact.LinkedIn;
 import project.steganography.Contact.WhatsApp;
 import project.steganography.PictureSteganography.Steganography;
 
-@Override
+
 public class SteganographyApp extends Application {
 
     public void start(Stage primaryStage) {
@@ -30,7 +30,6 @@ public class SteganographyApp extends Application {
         Label titleLabel = new Label("Steganography App");
         titleLabel.setFont(new Font("Arial", 30));
         titleLabel.setPadding(new Insets(-90, 10, 0, 290));
-
 
         // Adding an image to the Phone Call button
         Image phoneImage = new Image("file:src/main/resources/project/steganography/images/phone-call.png");
