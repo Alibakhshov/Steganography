@@ -61,7 +61,7 @@ public class SteganographyApp extends Application {
         });
 
         // Adding an image to the Whatsapp button
-        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp.png");
+        Image whatsImage = new Image("file:src/main/resources/project/steganography/images/whatsapp (2).png");
         ImageView whatsAppImage = new ImageView(whatsImage);
         whatsAppImage.setFitHeight(20);
         whatsAppImage.setFitWidth(20);
