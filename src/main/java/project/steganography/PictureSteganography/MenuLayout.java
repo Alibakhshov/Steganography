@@ -1,5 +1,6 @@
 package project.steganography.PictureSteganography;
 
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -93,6 +94,7 @@ public class MenuLayout {
                     "-fx-cursor: hand;"
 
     );
+    arrowButton.setPadding(new Insets(50, 0, 0, -50));
     arrowButton.setOnAction(e -> {
       try {
         new SteganographyApp().start(window);

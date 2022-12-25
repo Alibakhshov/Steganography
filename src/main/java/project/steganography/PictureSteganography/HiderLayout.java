@@ -37,6 +37,7 @@ public class HiderLayout {
     borderTopLayout.setPrefSize(Steganography.WIDTH * 0.25, Steganography.HEIGHT * 0.1);
 
     baseButton = new Button("Choose Base");
+
     baseButton.setFont(font);
     baseButton.setMinWidth(borderTopLayout.getPrefWidth() / 2);
     baseButton.setMaxHeight(Double.MAX_VALUE);
