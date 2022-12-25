@@ -131,11 +131,13 @@ public class HiderLayout {
   private static void fileSelected(File sourceFile) {
     if (sourceFile == null) {
       statusLabel.setText("Error reading image");
+      statusLabel.setStyle("-fx-text-fill: red;");
       return;
     }
 
     if (sourceFile.length() < Steganography.getMaxFileSize()) {
       statusLabel.setText("Working...");
+        statusLabel.setStyle("-fx-text-fill: #006c00;");
       Steganography.sourceFile = sourceFile;
       // Run hide in separate thread to allow main thread to update GUI
       new Thread(Steganography::compileHide).start();
@@ -147,6 +149,7 @@ public class HiderLayout {
   private static void baseImageSelected(File baseImageFile) {
     if (baseImageFile == null) {
       statusLabel.setText("Error reading image");
+        statusLabel.setStyle("-fx-text-fill: red;");
       return;
     }
     try {
@@ -156,6 +159,7 @@ public class HiderLayout {
 
     } catch (IOException e) {
       statusLabel.setText("Cannot process this image type");
+        statusLabel.setStyle("-fx-text-fill: red;");
     }
     fileButton.setDisable(false);
     optionsButton.setDisable(false);
@@ -167,6 +171,7 @@ public class HiderLayout {
 
     statusLabel.setText("Max File size: "
         + humanReadableByteCount(Steganography.getMaxFileSize(), false));
+    statusLabel.setStyle("-fx-text-fill: #006c00;");
   }
 
 
