@@ -37,7 +37,13 @@ public class HiderLayout {
     borderTopLayout.setPrefSize(Steganography.WIDTH * 0.25, Steganography.HEIGHT * 0.1);
 
     baseButton = new Button("Choose Base");
-
+    baseButton.setStyle(
+                    "-fx-background-color: #006c00;" +
+                    "-fx-text-fill: white;" +
+                    "-fx-font-size: 18px;" +
+                    "-fx-font-weight: bold;" +
+                    "-fx-cursor: hand;"
+    );
     baseButton.setFont(font);
     baseButton.setMinWidth(borderTopLayout.getPrefWidth() / 2);
     baseButton.setMaxHeight(Double.MAX_VALUE);
@@ -51,6 +57,13 @@ public class HiderLayout {
     });
 
     fileButton = new Button("Choose File");
+    fileButton.setStyle(
+                    "-fx-background-color: #006c00;" +
+                    "-fx-text-fill: white;" +
+                    "-fx-font-size: 18px;" +
+                    "-fx-font-weight: bold;" +
+                    "-fx-cursor: hand;"
+    );
     fileButton.setFont(font);
     fileButton.setMinWidth(borderTopLayout.getPrefWidth() / 2);
     fileButton.setMaxHeight(Double.MAX_VALUE);
