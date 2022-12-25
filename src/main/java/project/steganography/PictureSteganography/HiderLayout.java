@@ -104,6 +104,12 @@ public class HiderLayout {
     optionsLabel.setFont(Font.font("Arial", Steganography.HEIGHT / 75));
 
     Slider bitsToStoreSlider = new Slider();
+    bitsToStoreSlider.setStyle(
+                    "-fx-background-color: #006c00;" +
+                    "-fx-text-fill: white;" +
+                    "-fx-cursor: hand;" +
+                    "-fx-font-size: 18px;"
+    );
     bitsToStoreSlider.setMin(0);
     bitsToStoreSlider.setMax(3);
     bitsToStoreSlider.setValue(1);
