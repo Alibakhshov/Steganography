@@ -28,6 +28,9 @@ public class RevealerLayout {
     borderTopLayout.setPrefSize(Steganography.WIDTH * 0.25, Steganography.HEIGHT * 0.1);
 
     Button imageButton = new Button("Choose Image");
+    imageButton.setStyle(
+        "-fx-background-color: #006c00;"
+    );
     imageButton.setFont(font);
     HBox.setHgrow(imageButton, Priority.ALWAYS);
     imageButton.setMaxWidth(Double.MAX_VALUE);
