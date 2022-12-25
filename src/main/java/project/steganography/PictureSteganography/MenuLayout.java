@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class MenuLayout {
 
   public static Pane layout(Stage window) {
-    HBox layout = new HBox(5);
+    HBox layout = new HBox(6);
     layout.setStyle(
             "-fx-background-color: #f0f3f0;"
             + "-fx-border-color: #f1dddd;"
@@ -47,7 +47,17 @@ public class MenuLayout {
     revealButton.setMaxHeight(Double.MAX_VALUE);
     revealButton.setOnAction(e -> window.setScene(new Scene(RevealerLayout.layout(window))));
 
-    layout.getChildren().addAll(hideButton, revealButton);
+    Button exitButton = new Button("Exit");
+    exitButton.setOnAction(e -> window.close());
+    exitButton.setStyle(
+                    "-fx-background-color: #006c00;" +
+                    "-fx-text-fill: white;" +
+                    "-fx-font-size: 18px;" +
+                    "-fx-font-weight: bold;" +
+                    "-fx-cursor: hand;"
+    );
+    exitButton.setFont(font);
+    layout.getChildren().addAll(hideButton, revealButton, exitButton);
 
     return layout;
   }
