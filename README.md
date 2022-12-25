@@ -13,6 +13,9 @@ It mainly consists of two parts:
         <a href="" > Text Steganography</a> 
     </li>
     <li>
-        <a href="" > Image Steganography</a>. Picture Steganography is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. 
+        <a href="" > Image Steganography</a>. 
+        <ul>
+             <li>Picture Steganography is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. </li>
+        </ul>
     </li>
 </ol>
