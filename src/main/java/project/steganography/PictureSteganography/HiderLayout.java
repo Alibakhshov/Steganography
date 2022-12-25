@@ -173,6 +173,4 @@ public class HiderLayout {
         + humanReadableByteCount(Steganography.getMaxFileSize(), false));
     statusLabel.setStyle("-fx-text-fill: #006c00;");
   }
-
-
 }
