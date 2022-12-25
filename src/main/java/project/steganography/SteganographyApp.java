@@ -136,7 +136,7 @@ public class SteganographyApp extends Application {
             }
         });
 
-        // Adding an image to the linkedin button
+        // Adding an image to the exit button
         Image exImage = new Image("file:src/main/resources/project/steganography/images/exit.png");
         ImageView exitImage = new ImageView(exImage);
         exitImage.setFitHeight(20);

@@ -2,6 +2,8 @@ package project.steganography.PictureSteganography;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -47,16 +49,34 @@ public class MenuLayout {
     revealButton.setMaxHeight(Double.MAX_VALUE);
     revealButton.setOnAction(e -> window.setScene(new Scene(RevealerLayout.layout(window))));
 
-    Button exitButton = new Button("Exit");
-    exitButton.setOnAction(e -> window.close());
+//    Button exitButton = new Button("Exit");
+//    exitButton.setOnAction(e -> window.close());
+//    exitButton.setStyle(
+//                    "-fx-background-color: #006c00;" +
+//                    "-fx-text-fill: white;" +
+//                    "-fx-font-size: 18px;" +
+//                    "-fx-font-weight: bold;" +
+//                    "-fx-cursor: hand;"
+//    );
+//    exitButton.setFont(font);
+
+    // Adding an image to the exit button
+    Image exImage = new Image("file:src/main/resources/project/steganography/images/exit.png");
+    ImageView exitImage = new ImageView(exImage);
+    exitImage.setFitHeight(20);
+    exitImage.setFitWidth(20);
+
+    // Creating a button for exit
+    Button exitButton = new Button("", exitImage);
+    exitButton.setPrefSize(200, 10);
     exitButton.setStyle(
-                    "-fx-background-color: #006c00;" +
-                    "-fx-text-fill: white;" +
-                    "-fx-font-size: 18px;" +
-                    "-fx-font-weight: bold;" +
+            "-fx-background-color: none;" +
                     "-fx-cursor: hand;"
+
     );
-    exitButton.setFont(font);
+    exitButton.setOnAction(e -> {
+      System.exit(0);
+    });
     layout.getChildren().addAll(hideButton, revealButton, exitButton);
 
     return layout;
