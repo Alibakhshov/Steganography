@@ -87,12 +87,20 @@ public class HiderLayout {
     sliderBox.setDisable(true);
 
     optionsButton = new Button("Advanced");
+    optionsButton.setStyle(
+                    "-fx-background-color: #006c00;" +
+                    "-fx-text-fill: white;" +
+                    "-fx-cursor: hand;"
+    );
     optionsButton.setFont(Font.font("Arial", Steganography.HEIGHT / 90));
     optionsButton.setDisable(true);
     optionsButton.setOnAction(actionEvent -> sliderBox.setDisable(!sliderBox.isDisabled()));
     topNode.setRight(optionsButton);
 
     Label optionsLabel = new Label("Alteration Level");
+    optionsLabel.setStyle(
+                    "-fx-text-fill: #006c00;"
+    );
     optionsLabel.setFont(Font.font("Arial", Steganography.HEIGHT / 75));
 
     Slider bitsToStoreSlider = new Slider();
