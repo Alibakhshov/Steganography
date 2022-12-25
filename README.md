@@ -6,8 +6,7 @@ Steganography is the practice of concealing a file, message, image, or video wit
 
 ## Description
 
-Java implementation of steganography algorithms in a simple GUI. The GUI is written in JavaFX along with the CSS styling. The project is built using Gradle.  
-It mainly consists of two parts: 
+Java implementation of steganography algorithms in a simple GUI. The GUI is written in JavaFX along with the CSS styling. The project is built using Gradle. It mainly consists of two parts: 
 <ul>
     <li>
         <a href="" > Text Steganography</a> | <a href="" > Image Steganography</a> 
@@ -19,4 +18,6 @@ It mainly consists of two parts:
         </ul>
     </li>
 </ul>
+
+
 
