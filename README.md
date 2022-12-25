@@ -10,12 +10,13 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 It mainly consists of two parts: 
 <ol>
     <li>
-        <a href="" > Text Steganography</a> 
-    </li>
-    <li>
-        <a href="" > Image Steganography</a>. 
+        <a href="" > Text Steganography</a> | <a href="" > Image Steganography</a> 
+        <ul>
+             <li>Text Steganography  </li>
+        </ul>
         <ul>
              <li>Picture Steganography is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. </li>
         </ul>
     </li>
 </ol>
+
