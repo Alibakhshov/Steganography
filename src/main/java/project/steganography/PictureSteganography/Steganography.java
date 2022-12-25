@@ -263,7 +263,7 @@ public class Steganography extends Application {
     displayWindow = window;
 
     Scene scene = new Scene(MenuLayout.layout(window));
-    //scene.getStylesheets().add(getClass().getResource("CipherApp.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("PicSteganography.css").toExternalForm());
     window.setTitle("Steganography");
     window.setScene(scene);
     window.centerOnScreen();
