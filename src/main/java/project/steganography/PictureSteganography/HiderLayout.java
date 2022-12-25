@@ -30,6 +30,11 @@ public class HiderLayout {
     window = windowIn;
 
     BorderPane topNode = new BorderPane();
+    topNode.setStyle(
+            "-fx-background-color: #000000;" +
+            "-fx-border-color: #000000;" +
+            "-fx-border-width: 0 0 1 0;"
+    );
     Font font = new Font("Arial", Steganography.HEIGHT / 50);
 
     // Border Top
@@ -143,6 +148,7 @@ public class HiderLayout {
       new Thread(Steganography::compileHide).start();
     } else {
       statusLabel.setText("file too large".toUpperCase());
+        statusLabel.setStyle("-fx-text-fill: red;");
     }
   }
 
