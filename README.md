@@ -14,10 +14,14 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
              <li>Text Steganography  </li>
         </ul>
         <ul>
-             <li>Picture Steganography is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. </li>
+             <li>> < [Image steganography](https://en.wikipedia.org/wiki/Steganography) is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. </li>
         </ul>
     </li>
 </ul>
+
+## Usage
+
+ is the practice of concealing a file, message, image, or video within another file, message, image, or video.
 
 
 
