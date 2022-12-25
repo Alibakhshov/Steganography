@@ -72,7 +72,7 @@ public class MenuLayout {
     Button exitButton = new Button("", exitImage);
     exitButton.setPrefSize(200, 10);
     exitButton.setStyle(
-            "-fx-background-color: none;" +
+                    "-fx-background-color: none;" +
                     "-fx-cursor: hand;"
 
     );
@@ -92,7 +92,6 @@ public class MenuLayout {
     arrowButton.setStyle(
                     "-fx-background-color: none;" +
                     "-fx-cursor: hand;"
-
     );
     arrowButton.setPadding(new Insets(50, 0, 0, -50));
     arrowButton.setOnAction(e -> {
