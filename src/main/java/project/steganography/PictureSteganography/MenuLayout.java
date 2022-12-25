@@ -8,6 +8,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import project.steganography.SteganographyApp;
 
 public class MenuLayout {
 
@@ -77,7 +78,30 @@ public class MenuLayout {
     exitButton.setOnAction(e -> {
       System.exit(0);
     });
-    layout.getChildren().addAll(hideButton, revealButton, exitButton);
+
+    // Adding an image to the exit button
+    Image arrImage = new Image("file:src/main/resources/project/steganography/images/double-arrow.png");
+    ImageView arrowImage = new ImageView(arrImage);
+    arrowImage.setFitHeight(20);
+    arrowImage.setFitWidth(20);
+
+    // Creating a button for exit
+    Button arrowButton = new Button("", arrowImage);
+    arrowButton.setPrefSize(200, 10);
+    arrowButton.setStyle(
+                    "-fx-background-color: none;" +
+                    "-fx-cursor: hand;"
+
+    );
+    arrowButton.setOnAction(e -> {
+      try {
+        new SteganographyApp().start(window);
+      } catch (Exception ex) {
+        throw new RuntimeException(ex);
+      }
+    });
+
+    layout.getChildren().addAll(hideButton, revealButton, exitButton, arrowButton);
 
     return layout;
   }
