@@ -52,8 +52,7 @@ public class RevealerLayout {
     // File chooser
     FileChooser fc = new FileChooser();
     fc.setTitle("Image file to reveal from");
-    ExtensionFilter imageFilter
-        = new ExtensionFilter("Image Files", Steganography.IMAGE_EXTENSIONS);
+    ExtensionFilter imageFilter = new ExtensionFilter("Image Files", Steganography.IMAGE_EXTENSIONS);
     fc.getExtensionFilters().add(imageFilter);
 
     File imageFile = fc.showOpenDialog(window);
@@ -65,9 +64,11 @@ public class RevealerLayout {
       } catch (IOException e) {
         e.printStackTrace();
         statusLabel.setText("Error: Failed to read file");
+        statusLabel.setStyle("-fx-text-fill: red;");
       }
     } else {
       statusLabel.setText("Error: Cannot read file");
+        statusLabel.setStyle("-fx-text-fill: red;");
       return;
     }
   }
