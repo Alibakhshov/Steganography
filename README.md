@@ -30,6 +30,25 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 4. Run the `main()` method
 5. Enjoy!
 
+## Software and libraries used
+
+- JavaFX
+- Gradle
+- JUnit 5
+- CSS
+- IntelliJ IDEA
+- Git
+- GitHub
+- Markdown
+
+## Planned features
+
+- [ ] Add more steganography algorithms
+- [ ] Add more documentation
+- [ ] Add more features to the GUI
+- [ ] Add Audio Steganography
+- [ ] Add Video Steganography
+
 ## Screenshots
 
 **1. Main Menu**
