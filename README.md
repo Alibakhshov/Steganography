@@ -34,7 +34,6 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 
 - JavaFX
 - Gradle
-- JUnit 5
 - CSS
 - IntelliJ IDEA
 - Git
