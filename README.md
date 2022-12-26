@@ -73,7 +73,6 @@ Any questions or suggestions? Feel free to contact me at
     <img height="40" src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/315_Spotify_logo-128.png"/>
 </a>
 
-
 <p align="right"><a href="#top">back to top</a></p>
 
 
