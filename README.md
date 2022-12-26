@@ -21,3 +21,15 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 
 ## Usage
 
+1. Clone the repository
+
+   > git clone https://github.com/Alibakhshov/Steganography.git
+
+2. Open the project in your IDE (preferably IntelliJ IDEA)
+3. Navigate to the `src/main/java/project/steganography/SteganographyApp.java` file
+4. Run the `main()` method
+5. Enjoy!
+
+
+
+
