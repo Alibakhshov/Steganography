@@ -11,7 +11,7 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
     <li>
         <a href="" > Text Steganography</a> | <a href="" > Image Steganography</a> 
         <ul>
-             <li>Text Steganography  </li>
+             <li>Text Steganography was done using the Caesar cipher. The user can enter a message and a key to encrypt the message. The user can then decrypt the message by entering the key again.   </li>
         </ul>
         <ul> 
              <li>Image steganography is the process of hiding a file inside a picture. The file is hidden by changing the least significant bits of the pixels. </li>
@@ -29,6 +29,22 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 3. Navigate to the `src/main/java/project/steganography/SteganographyApp.java` file
 4. Run the `main()` method
 5. Enjoy!
+
+## Screenshots
+
+**1. Main Menu**
+
+   ![textSteg.png](src/main/resources/project/steganography/images/MainScreen.png)
+
+**2. Text Steganography**
+
+   ![imageSteg.png](src/main/resources/project/steganography/images/CipherScreen.png)
+
+**3. Image Steganography**
+
+   ![imageSteg.png](src/main/resources/project/steganography/images/ImageSteg1.png)
+
+   ![imageSteg.png](src/main/resources/project/steganography/images/ImageSteg2.png)
 
 
 
