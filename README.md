@@ -4,6 +4,19 @@ Steganography is the practice of concealing a file, message, image, or video wit
 
 ![steg.jpeg](src/main/resources/project/steganography/images/steg.jpeg)
 
+## Table of Contents
+
+<ol>
+    <li><a href="#description">Description</a></li>
+    <li><a href="#usage">How use the project</a></li>
+    <li><a href="#software-and-libraries-used">Software and libraries used</a></li>
+    <li><a href="#planned-features">Planned features</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#video-demonstration">Video Demonstration</a></li>
+    <li><a href="#contributions">Contributions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+
 ## Description
 
 Java implementation of steganography algorithms in a simple GUI. The GUI is written in JavaFX along with the CSS styling. The project is built using Gradle. It mainly consists of two parts: 
