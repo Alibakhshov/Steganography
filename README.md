@@ -79,7 +79,7 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 
 ## Video Demonstration
 
-[![Watch the video](https://img.youtube.com/vi/1ZQYQY4Z4qM/maxresdefault.jpg)](https://youtu.be/1ZQYQY4Z4qM)
+Watch the video <a href="https://www.youtube.com/watch?v=AnD8wIUAcB0">here</a>
 
 ## Contributions
 
