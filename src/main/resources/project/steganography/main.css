@@ -12,10 +12,18 @@
     -fx-cursor: hand;
 }
 
+.button:hover {
+    -fx-background-color: #2cc9ae;
+}
+
 .label {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #006c00;
+}
+
+.label:hover {
+    -fx-text-fill: #2cc9ae;
 }
 
 /*.picButton {*/
