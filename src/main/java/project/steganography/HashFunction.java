@@ -23,7 +23,7 @@ public class HashFunction extends Application {
         primaryStage.setTitle("Hash Function");
         primaryStage.setResizable(true);
         primaryStage.setAlwaysOnTop(true);
-        primaryStage.setMinWidth(500);
+        primaryStage.setMinWidth(550);
 
         // Create UI elements
         Label messageLabel = new Label("Message:");
@@ -38,6 +38,7 @@ public class HashFunction extends Application {
         TextField messageField = new TextField();
         messageField.setPromptText("Enter message here");
         messageField.setPrefWidth(200);
+        messageField.setPrefHeight(25);
         messageField.setStyle(
                         "-fx-font-size: 14px;" +
                         "-fx-font-weight: bold;" +
@@ -92,6 +93,13 @@ public class HashFunction extends Application {
                         "-fx-font-family: 'Segoe UI';"
         );
         Label hashLabel = new Label();
+        hashLabel.setStyle(
+                "-fx-font-size: 14px;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: #000000;" +
+                "-fx-font-family: 'Segoe UI';" +
+                "-fx-padding: 0 0 0 0;"
+        );
 
         // Create GridPane layout
         GridPane gridPane = new GridPane();
