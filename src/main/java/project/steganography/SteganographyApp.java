@@ -179,12 +179,25 @@ public class SteganographyApp extends Application {
             }
         });
 
+        // Creating button for the Hash Function App
+        Button hashButton = new Button("Hash Function");
+//        hashButton.getStyleClass().add("hashButton");
+        hashButton.setOnAction(e -> {
+            try {
+                new HashFunction().start(primaryStage);
+            } catch (Exception ex) {
+                throw new RuntimeException("Error");
+            }
+        });
+
+
         // Add some padding to the buttons
         cipherButton.setPadding(new Insets(10));
         picButton.setPadding(new Insets(10));
+        hashButton.setPadding(new Insets(10));
 
         // Create a horizontal box to hold the buttons
-        HBox buttonBox = new HBox(20, cipherButton, picButton, exitButton);
+        HBox buttonBox = new HBox(20, cipherButton, picButton, exitButton, hashButton);
         buttonBox.setAlignment(Pos.CENTER);
 
         // Creating a right vertical box to hold the picture
