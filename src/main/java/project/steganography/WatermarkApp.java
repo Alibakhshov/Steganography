@@ -38,9 +38,18 @@ public class WatermarkApp extends Application {
     public void start(Stage primaryStage) {
 
         label = new Label("Enter text for watermark:");
+        label.setStyle(
+                "-fx-font-size: 14px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-text-fill: #000000;" +
+                        "-fx-font-family: 'Segoe UI';" +
+                        "-fx-padding: 0 0 0 0;"
+
+        );
+
         textField = new TextField();
         textField.setPromptText("Enter text here");
-        textField.setPrefWidth(200);
+        textField.setPrefWidth(100);
         textField.setPrefHeight(25);
         textField.setStyle(
                 "-fx-font-size: 14px;" +
@@ -135,7 +144,8 @@ public class WatermarkApp extends Application {
 
         VBox root = new VBox(20, vbox, imageView);
         root.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(root, 600, 200);
+        Scene scene = new Scene(root, 600, 300);
+        primaryStage.setTitle("Watermark App");
         scene.widthProperty().addListener((obs, oldVal, newVal) -> {
             double imageWidth = imageView.getFitWidth();
             double vboxWidth = vbox.getBoundsInParent().getWidth();
@@ -219,25 +229,14 @@ public class WatermarkApp extends Application {
             int height = bufferedImage.getHeight();
             BufferedImage newBufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
-            for (int y = 0; y < height; y++) {
-                for (int x = 0; x < width; x++) {
-                    int rgb = bufferedImage.getRGB(x, y);
-                    int alpha = (rgb >> 24) & 0xFF;
-                    int red = (rgb >> 16) & 0xFF;
-                    int green = (rgb >> 8) & 0xFF;
-                    int blue = rgb & 0xFF;
-
-                    int[][] pixel = {{red}, {green}, {blue}};
-                    int[][] newPixel = matrixMultiply(watermark, pixel);
-                    newBufferedImage.setRGB(x, y, (alpha << 24) | (newPixel[0][0] << 16) | (newPixel[1][0]
-                            << 8) | newPixel[2][0]);
-                }
-            }
-
             Graphics2D g2d = newBufferedImage.createGraphics();
-            g2d.setFont(new Font("Arial", Font.BOLD, 20));
-            g2d.setColor(Color.WHITE);
-            g2d.drawString(text, 10, 30);
+            g2d.drawImage(bufferedImage, 0, 0, null);
+            g2d.setFont(new Font("Arial", Font.BOLD, 40));
+            g2d.setColor(new Color(255, 255, 255, 100));
+            g2d.rotate(Math.toRadians(45), width / 2, height / 2);
+            FontMetrics fontMetrics = g2d.getFontMetrics();
+            int stringWidth = fontMetrics.stringWidth(text);
+            g2d.drawString(text, (width - stringWidth) / 2, height / 2);
             g2d.dispose();
 
             image = SwingFXUtils.toFXImage(newBufferedImage, null);
