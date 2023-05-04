@@ -6,6 +6,7 @@ module project.steganography {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.desktop;
+    requires javafx.swing;
 
     opens project.steganography to javafx.fxml;
     exports project.steganography;

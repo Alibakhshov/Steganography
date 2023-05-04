@@ -4,10 +4,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -53,19 +50,75 @@ public class CipherApplication extends Application {
 
         // Set the action for the encode button
         encodeButton.setOnAction(event -> {
-            String key = keyField.getText();
+            String keyString = keyField.getText();
             String input = inputArea.getText();
-            String encoded = encode(input, Integer.parseInt(key));
+
+            // Check that the key is a valid integer
+            int key;
+            try {
+                key = Integer.parseInt(keyString);
+            } catch (NumberFormatException e) {
+                // Show an error message and return if the key is not a valid integer
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid key. Please enter an integer.");
+                alert.showAndWait();
+                return;
+            }
+
+            // Check that the input is not empty
+            if (input.isEmpty()) {
+                // Show an error message and return if the input is empty
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Input is empty. Please enter some text to encode.");
+                alert.showAndWait();
+                return;
+            }
+
+            String encoded = encode(input, key);
             outputArea.setText(encoded);
         });
 
-        // Set the action for the decode button
+// Set the action for the decode button
         decodeButton.setOnAction(event -> {
-            String key = keyField.getText();
+            String keyString = keyField.getText();
             String input = inputArea.getText();
-            String decoded = decode(input, Integer.parseInt(key));
+
+            // Check that the key is a valid integer
+            int key;
+            try {
+                key = Integer.parseInt(keyString);
+            } catch (NumberFormatException e) {
+                // Show an error message and return if the key is not a valid integer
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid key. Please enter an integer.");
+                alert.showAndWait();
+                return;
+            }
+
+            // Check that the input is not empty
+            if (input.isEmpty()) {
+                // Show an error message and return if the input is empty
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Input is empty. Please enter some text to decode.");
+                alert.showAndWait();
+                return;
+            }
+
+            String decoded = decode(input, key);
             outputArea.setText(decoded);
         });
+
+//        // Set the action for the encode button
+//        encodeButton.setOnAction(event -> {
+//            String key = keyField.getText();
+//            String input = inputArea.getText();
+//            String encoded = encode(input, Integer.parseInt(key));
+//            outputArea.setText(encoded);
+//        });
+//
+//        // Set the action for the decode button
+//        decodeButton.setOnAction(event -> {
+//            String key = keyField.getText();
+//            String input = inputArea.getText();
+//            String decoded = decode(input, Integer.parseInt(key));
+//            outputArea.setText(decoded);
+//        });
 
         // Set the action for the clear button
         clearButton.setOnAction(event -> {
@@ -140,21 +193,102 @@ public class CipherApplication extends Application {
         primaryStage.show();
     }
 
+    public static class Matrix {
+        public static int[][] multiply(int[][] a, int[][] b) {
+            int m = a.length;
+            int n = b[0].length;
+            int[][] result = new int[m][n];
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    for (int k = 0; k < a[0].length; k++) {
+                        result[i][j] += a[i][k] * b[k][j];
+                    }
+                }
+            }
+            return result;
+        }
+
+        public static int[][] inverse(int[][] a) {
+            int determinant = a[0][0];
+            int[][] inverse = {{1 / determinant}};
+            return inverse;
+        }
+
+        public static int[][] add(int[][] messageMatrix, int[][] keyMatrix) {
+            int[][] result = new int[messageMatrix.length][messageMatrix[0].length];
+            for (int i = 0; i < messageMatrix.length; i++) {
+                for (int j = 0; j < messageMatrix[0].length; j++) {
+                    result[i][j] = messageMatrix[i][j] + keyMatrix[i][j];
+                }
+            }
+            return result;
+        }
+
+        public static int[][] subtract(int[][] messageMatrix, int[][] keyMatrix) {
+            int[][] result = new int[messageMatrix.length][messageMatrix[0].length];
+            for (int i = 0; i < messageMatrix.length; i++) {
+                for (int j = 0; j < messageMatrix[0].length; j++) {
+                    result[i][j] = messageMatrix[i][j] - keyMatrix[i][j];
+                }
+            }
+            return result;
+        }
+    }
+
+
     private String encode(String input, int key) {
         // Shift each character in the message by the shift amount
         StringBuilder encodedMessage = new StringBuilder();
-        for (char c : input.toCharArray()) {
-            encodedMessage.append((char) (c + key));
+        int[][] messageMatrix = new int[input.length()][1];
+        for (int i = 0; i < input.length(); i++) {
+            messageMatrix[i][0] = (int) input.charAt(i);
+        }
+        int[][] keyMatrix = new int[input.length()][1];
+        for (int i = 0; i < input.length(); i++) {
+            keyMatrix[i][0] = key;
+        }
+        int[][] encodedMatrix = Matrix.add(messageMatrix, keyMatrix);
+        for (int i = 0; i < input.length(); i++) {
+            encodedMessage.append((char) encodedMatrix[i][0]);
         }
         return encodedMessage.toString();
     }
 
-    private  String decode(String input, int key) {
+    private String decode(String input, int key) {
         // Shift each character in the message by the shift amount
         StringBuilder decodedMessage = new StringBuilder();
-        for (char c : input.toCharArray()) {
-            decodedMessage.append((char) (c - key));
+        int[][] messageMatrix = new int[input.length()][1];
+        for (int i = 0; i < input.length(); i++) {
+            messageMatrix[i][0] = (int) input.charAt(i);
+        }
+        int[][] keyMatrix = new int[input.length()][1];
+        for (int i = 0; i < input.length(); i++) {
+            keyMatrix[i][0] = key;
+        }
+        int[][] decodedMatrix = Matrix.subtract(messageMatrix, keyMatrix);
+        for (int i = 0; i < input.length(); i++) {
+            decodedMessage.append((char) decodedMatrix[i][0]);
         }
         return decodedMessage.toString();
     }
+
+
+
+//    private String encode(String input, int key) {
+//        // Shift each character in the message by the shift amount
+//        StringBuilder encodedMessage = new StringBuilder();
+//        for (char c : input.toCharArray()) {
+//            encodedMessage.append((char) (c + key));
+//        }
+//        return encodedMessage.toString();
+//    }
+//
+//    private  String decode(String input, int key) {
+//        // Shift each character in the message by the shift amount
+//        StringBuilder decodedMessage = new StringBuilder();
+//        for (char c : input.toCharArray()) {
+//            decodedMessage.append((char) (c - key));
+//        }
+//        return decodedMessage.toString();
+//    }
 }
