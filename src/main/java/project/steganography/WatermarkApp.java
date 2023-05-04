@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -38,25 +39,152 @@ public class WatermarkApp extends Application {
 
         label = new Label("Enter text for watermark:");
         textField = new TextField();
+        textField.setPromptText("Enter text here");
+        textField.setPrefWidth(200);
+        textField.setPrefHeight(25);
+        textField.setStyle(
+                "-fx-font-size: 14px;" +
+                        "-fx-font-weight: bold;" +
+                        "-fx-text-fill: #000000;" +
+                        "-fx-font-family: 'Segoe UI';" +
+                        "-fx-padding: 0 0 0 0;"
+
+        );
 
         uploadButton = new Button("Upload Image");
+        uploadButton.setStyle(
+                "-fx-font-size: 1.2em; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-background-color: #00ff00; " +
+                        "-fx-text-fill: #000000; " +
+                        "-fx-border-color: #000000; " +
+                        "-fx-border-width: 1px; "  +
+                        "-fx-border-radius: 5px; " +
+                        "-fx-font-family: 'Segoe UI';"
+        );
         uploadButton.setOnAction(event -> uploadImage());
 
         addWatermarkButton = new Button("Add Watermark");
+        addWatermarkButton.setStyle(
+                "-fx-font-size: 1.2em; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-background-color: #00ff00; " +
+                        "-fx-text-fill: #000000; " +
+                        "-fx-border-color: #000000; " +
+                        "-fx-border-width: 1px; "  +
+                        "-fx-border-radius: 5px; " +
+                        "-fx-font-family: 'Segoe UI';"
+        );
         addWatermarkButton.setOnAction(event -> addWatermark());
 
-        HBox hbox = new HBox(10, label, textField);
-        VBox vbox = new VBox(10, uploadButton, hbox, addWatermarkButton);
+        Button saveButton = new Button("Save Image");
+        saveButton.setStyle(
+                "-fx-font-size: 1.2em; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-background-color: #00ff00; " +
+                        "-fx-text-fill: #000000; " +
+                        "-fx-border-color: #000000; " +
+                        "-fx-border-width: 1px; "  +
+                        "-fx-border-radius: 5px; " +
+                        "-fx-font-family: 'Segoe UI';"
+        );
+        saveButton.setOnAction(event -> saveImage());
+
+        Button backButton = new Button("Back");
+        backButton.setStyle(
+                "-fx-font-size: 1.2em; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-background-color: #00ff00; " +
+                        "-fx-text-fill: #000000; " +
+                        "-fx-border-color: #000000; " +
+                        "-fx-border-width: 1px; "  +
+                        "-fx-border-radius: 5px; " +
+                        "-fx-font-family: 'Segoe UI';"
+        );
+        backButton.setOnAction(event -> {
+            try {
+                new SteganographyApp().start(primaryStage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        Button deleteImageButton = new Button("Delete Image");
+        deleteImageButton.setStyle(
+                "-fx-font-size: 1.2em; " +
+                        "-fx-font-weight: bold; " +
+                        "-fx-background-color: #00ff00; " +
+                        "-fx-text-fill: #000000; " +
+                        "-fx-border-color: #000000; " +
+                        "-fx-border-width: 1px; "  +
+                        "-fx-border-radius: 5px; " +
+                        "-fx-font-family: 'Segoe UI';"
+        );
+        deleteImageButton.setOnAction(event -> {
+            image = null;
+            imageView.setImage(null);
+        });
+
+        HBox buttonBox = new HBox(10, uploadButton, addWatermarkButton, saveButton, deleteImageButton, backButton);
+        VBox vbox = new VBox(10, label, textField, buttonBox);
 
         imageView = new ImageView();
-        imageView.setFitWidth(400);
+        imageView.setFitWidth(200);
+        imageView.setFitHeight(200);
         imageView.setPreserveRatio(true);
 
         VBox root = new VBox(20, vbox, imageView);
         root.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(root, 600, 600);
+        Scene scene = new Scene(root, 600, 200);
+        scene.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double imageWidth = imageView.getFitWidth();
+            double vboxWidth = vbox.getBoundsInParent().getWidth();
+            double newImageWidth = Math.min(imageWidth, newVal.doubleValue() - vboxWidth - 40); // 40 is the total horizontal padding
+            imageView.setFitWidth(newImageWidth);
+        });
+        scene.heightProperty().addListener((obs, oldVal, newVal) -> {
+            double imageHeight = imageView.getFitHeight();
+            double newImageHeight = Math.min(imageHeight, newVal.doubleValue() - 60); // 60 is the total vertical padding
+            imageView.setFitHeight(newImageHeight);
+        });
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
+
+
+
+//        HBox buttonBox = new HBox(10, uploadButton, addWatermarkButton, saveButton, deleteImageButton, backButton);
+//        VBox vbox = new VBox(10, label, textField, buttonBox);
+//
+//        imageView = new ImageView();
+//        imageView.setFitWidth(200);
+//        imageView.setPreserveRatio(true);
+//
+//        VBox root = new VBox(20, vbox, imageView);
+//        root.setAlignment(Pos.CENTER);
+//        Scene scene = new Scene(root, 600, 200);
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+
+    }
+
+    private void saveImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg")
+        );
+        File file = fileChooser.showSaveDialog(null);
+        if (file != null) {
+            try {
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+                ImageIO.write(bufferedImage, "png", file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void uploadImage() {
