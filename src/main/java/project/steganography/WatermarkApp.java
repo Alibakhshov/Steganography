@@ -71,7 +71,15 @@ public class WatermarkApp extends Application {
                         "-fx-border-radius: 5px; " +
                         "-fx-font-family: 'Segoe UI';"
         );
-        uploadButton.setOnAction(event -> uploadImage());
+        uploadButton.setOnAction(event -> {
+            try {
+                uploadImage();
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+        });
+
 
         addWatermarkButton = new Button("Add Watermark");
         addWatermarkButton.setStyle(
