@@ -199,6 +199,13 @@ public class WatermarkApp extends Application {
             try {
                 BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
                 ImageIO.write(bufferedImage, "png", file);
+                label.setText("Image Saved Successfully");
+                label.setStyle(
+                        "-fx-font-size: 1.2em; " +
+                                "-fx-font-weight: bold; " +
+                                "-fx-text-fill: #ff0000; " +
+                                "-fx-font-family: 'Segoe UI';"
+                );
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -215,6 +222,14 @@ public class WatermarkApp extends Application {
             try {
                 image = new Image(selectedFile.toURI().toString());
                 imageView.setImage(image);
+                // adding text "Image Uploaded" to the label
+                label.setText("Image Uploaded Successfully");
+                label.setStyle(
+                        "-fx-font-size: 1.2em; " +
+                                "-fx-font-weight: bold; " +
+                                "-fx-text-fill: #ff0000; " +
+                                "-fx-font-family: 'Segoe UI';"
+                );
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
@@ -239,7 +254,7 @@ public class WatermarkApp extends Application {
 
             Graphics2D g2d = newBufferedImage.createGraphics();
             g2d.drawImage(bufferedImage, 0, 0, null);
-            g2d.setFont(new Font("Arial", Font.BOLD, 40));
+            g2d.setFont(new Font("Arial", Font.BOLD, 100));
             g2d.setColor(new Color(255, 255, 255, 100));
             g2d.rotate(Math.toRadians(45), width / 2, height / 2);
             FontMetrics fontMetrics = g2d.getFontMetrics();
@@ -249,6 +264,12 @@ public class WatermarkApp extends Application {
 
             image = SwingFXUtils.toFXImage(newBufferedImage, null);
             imageView.setImage(image);
+            label.setText("Watermark added successfully");
+            label.setStyle(
+                    "-fx-text-fill: #ff0000;" +
+                            "-fx-font-size: 1.2em;" +
+                            "-fx-font-weight: bold;"
+            );
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
