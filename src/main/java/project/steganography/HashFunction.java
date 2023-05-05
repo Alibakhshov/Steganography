@@ -155,7 +155,7 @@ public class HashFunction extends Application {
         });
 
         // Set up the scene
-        Scene scene = new Scene(gridPane, 400, 150);
+        Scene scene = new Scene(gridPane, 490, 150);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Cryptographic Hash Function");
         primaryStage.show();
