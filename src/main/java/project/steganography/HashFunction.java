@@ -127,6 +127,7 @@ public class HashFunction extends Application {
             byte[] messageHash = createHash(message.getBytes());
             double[][] hashedMatrix = multiplyMatrix(matrix, messageHash);
 
+
             // Hash the resulting matrix
             byte[] hash = createHash(toString(hashedMatrix).getBytes());
 

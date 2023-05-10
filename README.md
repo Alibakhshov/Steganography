@@ -77,6 +77,14 @@ Java implementation of steganography algorithms in a simple GUI. The GUI is writ
 
    ![imageSteg.png](src/main/resources/project/steganography/images/ImageSteg2.png)
 
+**4. Hash Function**
+
+   ![imageSteg.png](src/main/resources/project/steganography/images/Hash.png)
+
+**5. Watermarking**
+
+   ![imageSteg.png](src/main/resources/project/steganography/images/watermark.png)
+
 ## Video Demonstration
 
 Watch the video <a href="https://www.youtube.com/watch?v=AnD8wIUAcB0">here</a>
